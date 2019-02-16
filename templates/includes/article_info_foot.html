@@ -1,18 +1,20 @@
-<span class="articleinfo">
-    <span class="postedin">
-        Filed under <a href="{{ SITEURL }}/{{article.category.url}}" class="p-category">{{article.category}}</a>
-    </span>
-    {% if article.tags %}  
-    &#183;
-    <span class="articleinfo">
-        <span class="postedwith">
-            Tagged with {% for tag in article.tags: %}
-            <a href="{{ SITEURL }}/{{ tag.url }}" class="p-category">{{tag}}</a>{% if not loop.last %},{% endif %}
+<div class="article-info">
+    <div class="article-info-line">
+        <span class="article-info-span">
+            <span class="fa fa-folder"></span>
+            <a href="{{ SITEURL }}/{{article.category.url}}" class="p-category">{{article.category}}</a>
+        </span>
+        {% if article.tags %}  
+        &#183;
+        <span class="article-info-span">
+            {% for tag in article.tags: %}
+            <a href="{{ SITEURL }}/{{ tag.url }}" class="p-category">#{{tag}}</a>
             {% endfor %}
         </span>
-    </span>
-    {% endif %}
-</span>
-<br/>
-
-{% include 'includes/comment_count.html' %}
+        {% endif %}
+        &#183;
+        <a class="article-info-span"
+           href="{{ SITEURL }}/{{article.url}}"><span class="fa fa-bookmark"></a></span>
+    </div>
+    {% include 'includes/comment_count.html' %}
+</div>

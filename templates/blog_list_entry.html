@@ -1,25 +1,17 @@
 <div class="card">
     <div class="card-body">
-        <header>
-            {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
+        <header class="article-header">
             {% include 'includes/article_info_head.html' %}
-            {% endif %}
-            <h1><a href="{{ SITEURL }}/{{ article.url }}"
-                   class="p-name u-url">{{ article.title }}</a></h1>
-            {% if article.author %}
-            <div class="articleinfo">Posted by <a class="p-author h-card"
-                 href="{{ SITEURL }}">{{article.author}}</a>
-            </div>
-            {% endif %}
+            <h2><a href="{{ SITEURL }}/{{ article.url }}"
+                   class="p-name u-url">{{ article.title }}</a></h2>
         </header>
         <div class="summary p-summary">
             {{ article.summary }}
+            <p><a href="{{ SITEURL }}/{{ article.url}}">Read more →</a></p> 
         </div>
-        <p><a href="{{ SITEURL }}/{{ article.url}}">Read more →</a></p> 
-        <footer>
-            {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
-            {% include 'includes/article_info_foot.html' %}
-            {% endif %}
-        </footer>
+     
     </div>
+    <footer class="card-footer">
+    {% include 'includes/article_info_foot.html' %}
+    </footer>
 </div>

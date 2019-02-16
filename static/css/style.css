@@ -74,18 +74,24 @@ article {
     font-size: 1.2em;
 }
 
-.articleinfo {
+.article-info {
     color: #888;
-    font-size: 85%;
+    font-size: 14px;
 }
 
-.postedon, .postedin {
+.article-info-span:first-child {
+    margin-left: 0px;
+}
+
+.article-info-span {
+    margin-left: 0.3em;
     margin-right: 0.3em;
 }
 
-.page-header {
-    padding-bottom: 9px;
-    border-bottom: 1px solid #eee;
+.article-header {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.125);
 }
 
 article header h1 {
@@ -97,10 +103,10 @@ article h1 a {
     color: #333;
 }
 
-.summary {
-    margin-top: 20px;
-}
-
 .card-index .card {
     margin-bottom: 5px;
+}
+
+.card p:last-child {
+    margin-bottom: 0px;
 }

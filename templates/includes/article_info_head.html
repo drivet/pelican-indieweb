@@ -1,6 +1,18 @@
-<span class="articleinfo">
-      <time class="postedon dt-published"
-            datetime="{{ article.date.isoformat() }}">
-          {{ article.locale_date}}
-      </time>
-</span>
+<div class="article-info">
+    <div class="article-info-line">
+        <time class="article-info-span"
+              datetime="{{ article.date.isoformat() }}">
+            {{ article.locale_date}}
+        </time>
+        &#183;
+        {% if article.author %}
+        <span class="article-info-span">
+            <a class="p-author h-card"
+               href="{{ SITEURL }}">{{article.author}}</a>
+            {% else %}
+            <a class="p-author h-card"
+               href="{{ SITEURL }}">{{AUTHOR}}</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
