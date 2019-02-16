@@ -1,0 +1,6 @@
+<script  data-isso="{{ ISSO_SERVER }}" src="{{ ISSO_SERVER }}/js/count.min.js"></script>
+{% if ISSO_SERVER and ISSO_DISPLAY_COUNTS %}
+<p><small>
+<a href="/{{ article.url }}#isso-thread">View comments</a>
+</small></p>
+{% endif %}

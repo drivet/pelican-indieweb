@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-body">
+        <div class="card-text entry-content e-content">
+            <span class="articleinfo">
+                <time class="postedon dt-published"
+                    datetime="{{ article.date.isoformat() }}">
+                  {{ article.locale_date}}
+                </time>
+            </span>
+            &#183;
+            <span class="articleinfo">
+                {% if article.author %}
+                <a class="p-author h-card"
+                   href="{{ SITEURL }}">{{article.author}}</a>
+                {% else %}
+                <a class="p-author h-card"
+                   href="{{ SITEURL }}">{{AUTHOR}}</a>
+                {% endif %}
+            </span>
+            {{ article.content }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{#
+base template of pages which have lists of articles in them
+Pages can override :
+- article_list_title: the header at the top of the list
+#}
+
+{% extends "all.html" %}
+
+{% block content %}
+
+<section>
+{% block article_list_title %}{% endblock %}
+
+{% for article in (articles_page.object_list if articles_page else articles) %}
+<article class="h-entry">
+    {% if article.type == "blogentry" %}
+    {% include 'blog_list_entry.html' %}
+    {% elif article.type == "note" %}
+    {% include 'note_list_entry.html' %}
+    {% endif %}
+</article>
+{% endfor %}
+</section>
+
+{% include 'includes/pagination.html' %}
+
+{% endblock content %}

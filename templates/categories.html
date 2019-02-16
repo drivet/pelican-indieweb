@@ -1,0 +1,33 @@
+{% extends "all.html" %}
+{% block title %}Categories - {{ SITENAME }}{% endblock %}
+
+{% block meta %}
+<meta name="robots" content="noindex,follow" />
+{% endblock %}
+
+{% block content %}
+<section class="card-index categories">
+    <h1>Categories</h1>    
+    {% for category, articles in categories %}
+    <div class="card">
+        <div class="card-header">
+            <a data-toggle="collapse" href="#collapse-{{category.slug}}">
+                {{ category }}
+                 <span class="float-right badge badge-secondary">{{ articles|count }}</span>
+            </a>
+        </div>
+        <div class="collapse" id="collapse-{{category.slug}}">
+            <div class="card-body">
+                {% for article in articles %}
+                <p><span class="categories-timestamp">
+                        <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+                    </span>
+                    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                </p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

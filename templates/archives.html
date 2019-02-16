@@ -1,0 +1,26 @@
+{% extends "all.html" %}
+
+{% block title %}
+Archives - {{ SITENAME }}
+{% endblock %}
+
+{% block meta %}
+<meta name="robots" content="noindex,follow" />
+{% endblock %}
+
+{% block content %}
+<section id="content">
+    <h1>Archives</h1>
+    <div id="archives">
+        {% for article in dates %}
+            <p>
+                <span class="categories-timestamp">
+                     <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}
+                     </time>
+                </span>
+                <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+            </p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

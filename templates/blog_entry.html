@@ -1,0 +1,29 @@
+<header class="page-header"> 
+    {% include 'includes/article_info_head.html' %}
+    <h1>
+        <a class="p-name u-url"
+           href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+           title="Link to {{ article.title|striptags }}">
+            {{ article.title }}
+        </a>
+    </h1>
+    {% if article.author or AUTHOR %}
+    <div class="articleinfo">Posted by
+        {% if article.author %}
+        <a class="p-author h-card"
+           href="{{ SITEURL }}">{{article.author}}</a>
+        {% else %}
+        <a class="p-author h-card"
+           href="{{ SITEURL }}">{{AUTHOR}}</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</header>
+<div class="entry-content e-content">
+    {{ article.content }}
+</div> 
+<footer>
+    {% include 'includes/article_info_foot.html' %}
+    {% include 'includes/related-posts.html' %}
+    {% include 'includes/comments.html' %}
+</footer>

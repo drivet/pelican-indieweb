@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Soapbox - {{ SITENAME }}{% endblock%}
+
+{% block banner %}
+<nav class="navbar-soapbox navbar navbar-expand-lg navbar-light bg-light" role="navigation">
+    <div class="container">
+        <h1>Soapbox</h1>
+
+        <ul class="navbar-nav soapbox-links mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ SITEURL }}/all">
+                    All
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ SITEURL }}/blog">
+                    Blog
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ SITEURL }}/notes">
+                    Notes
+                </a>
+            </li>
+        </ul>
+                
+        <ul class="navbar-nav soapbox-links">
+             {% if CATEGORIES_SAVE_AS %}
+             <li class="nav-item">
+             <a class="nav-link" href="{{ SITEURL }}/{{ CATEGORIES_URL | default('categories.html') }}"> 
+                 <span class="fa fa-folder"></span>Categories</a>
+             </li>
+             {% endif %}
+             {% if TAGS_SAVE_AS %}
+             <li>
+             <a class="nav-link" href="{{ SITEURL }}/{{ TAGS_URL | default('tags.html') }}"> 
+                 <span class="fa fa-tag fa-flip-horizontal"></span>Tags</a>
+             </li>
+             {% endif %} 
+             {% if ARCHIVES_SAVE_AS %}
+             <li>
+             <a class="nav-link" href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"> 
+                 <span class="fa fa-archive"></span>Archives</a>
+             </li>
+             {% endif %}  
+             {% if FEED_ALL_RSS %}
+             <li>
+             <a class="nav-link" href="{{ SITEURL }}/{{ FEED_ALL_RSS }}">
+                 <span class="fa fa-rss-square"></span>Subscribe</a>
+             </li>
+             {% endif %}
+         </ul>
+    </div>
+</nav>
+
+{% endblock %}

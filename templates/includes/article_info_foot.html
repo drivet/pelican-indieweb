@@ -1,0 +1,18 @@
+<span class="articleinfo">
+    <span class="postedin">
+        Filed under <a href="{{ SITEURL }}/{{article.category.url}}" class="p-category">{{article.category}}</a>
+    </span>
+    {% if article.tags %}  
+    &#183;
+    <span class="articleinfo">
+        <span class="postedwith">
+            Tagged with {% for tag in article.tags: %}
+            <a href="{{ SITEURL }}/{{ tag.url }}" class="p-category">{{tag}}</a>{% if not loop.last %},{% endif %}
+            {% endfor %}
+        </span>
+    </span>
+    {% endif %}
+</span>
+<br/>
+
+{% include 'includes/comment_count.html' %}
