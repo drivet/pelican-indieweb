@@ -12,10 +12,10 @@ Tag archives for: {{ tag }} - {{ SITENAME }}
 
 {% block article_list_title %}
 <header class="article-list-header">
-    Tag archives for: {{ tag }}
+    <h1 class="index-title"> Tag archives for: {{ tag }}</h1>
     <div class="category-rsslinks"> 
         {% if TAG_FEED_RSS %}
-        <a class="index-link" href="{{ SITEURL }}/{{ TAG_FEED_RSS|format(slug=tag) }}">
+        <a class="index-link" href="{{ SITEURL }}/{{ TAG_FEED_RSS.format(slug=tag) }}">
             <span class="fa fa-rss-square"></span>Subscribe</a>
         {% endif %}
     </div>

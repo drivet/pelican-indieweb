@@ -1,7 +1,7 @@
 {% extends "article_list.html" %}
 
 {% block title %}
-Notes - {{ SITENAME }}
+{{ NOTE_TITLE }} - {{ SITENAME }}
 {% endblock%}
 
 {% block meta %}
@@ -11,10 +11,10 @@ Notes - {{ SITENAME }}
 
 {% block article_list_title %}
 <header class="article-list-header">
-    Notes
+    <h1 class="index-title">{{ NOTE_TITLE }}</h1>
     <div class="category-rsslinks"> 
-        {% if NOTES_FEED_RSS %}
-        <a class="index-link" href="{{ SITEURL }}/{{ NOTES_FEED_RSS|format(slug=tag) }}">
+        {% if NOTE_FEED_RSS %}
+        <a class="index-link" href="{{ SITEURL }}/{{ NOTE_FEED_RSS }}">
             <span class="fa fa-rss-square"></span>Subscribe</a>
         {% endif %}
     </div>

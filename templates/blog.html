@@ -1,7 +1,7 @@
 {% extends "article_list.html" %}
 
 {% block title %}
-Blog - {{ SITENAME }}
+{{ BLOGENTRY_TITLE }} - {{ SITENAME }}
 {% endblock%}
 
 {% block meta %}
@@ -11,10 +11,10 @@ Blog - {{ SITENAME }}
 
 {% block article_list_title %}
 <header class="blogheader article-list-header">
-    Blog
+    <h1 class="index-title">{{ BLOGENTRY_TITLE }}</h1>
     <div class="category-rsslinks"> 
-        {% if BLOG_FEED_RSS %}
-        <a class="index-link" href="{{ SITEURL }}/{{ BLOG_FEED_RSS|format(slug=tag) }}">
+        {% if BLOGENTRY_FEED_RSS %}
+        <a class="index-link" href="{{ SITEURL }}/{{ BLOGENTRY_FEED_RSS }}">
             <span class="fa fa-rss-square"></span>Subscribe</a>
         {% endif %}
     </div>

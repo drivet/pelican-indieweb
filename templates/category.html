@@ -12,10 +12,10 @@
 
 {% block article_list_title %}
 <header class="article-list-header">
-    Category archives for: {{ category }}
+    <h1 class="index-title">Category archives for: {{ category }}</h1>
     <div class="category-rsslinks"> 
         {% if CATEGORY_FEED_RSS %}
-        <a class="index-link" href="{{ SITEURL }}/{{ CATEGORY_FEED_RSS|format(slug=category.slug) }}">
+        <a class="index-link" href="{{ SITEURL }}/{{ CATEGORY_FEED_RSS.format(slug=category) }}">
             <span class="fa fa-rss-square"></span>Subscribe</a>
         {% endif %}
     </div>
