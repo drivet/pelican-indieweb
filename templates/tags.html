@@ -9,28 +9,30 @@
 {% block content %}
 <section class="card-index tags">
     <h1>Tags</h1>
+    <div class="accordion" id="categoryAccordion">
     {%- for tag, articles in tags|sort %}
-    <div class="card">
-        <div class="card-header">
-            <a data-toggle="collapse"href="#collapse-{{tag.slug}}">
-                {{ tag }}
-                <span class="float-right badge">{{ articles|count }}</span>
-            </a>
-        </div>
-        <div id="collapse-{{tag.slug}}" class="collapse">
-            <div class="card-body">
-                {% for article in articles %}
-                <p><span class="categories-timestamp">
-                        <time datetime="{{ article.date.isoformat() }}">
-                            {{ article.locale_date }}
-                        </time>
-                    </span>
-                    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-                </p>
-                {% endfor %}
+        <div class="card">
+            <div class="card-header bg-light">
+                <a data-toggle="collapse"href="#collapse-{{tag.slug}}">
+                    {{ tag }}
+                    <span class="float-right badge">{{ articles|count }}</span>
+                </a>
+            </div>
+            <div id="collapse-{{tag.slug}}" class="collapse" data-parent="#categoryAccordion">
+                <div class="card-body">
+                    {% for article in articles %}
+                    <p><span class="categories-timestamp">
+                            <time datetime="{{ article.date.isoformat() }}">
+                                {{ article.locale_date }}
+                            </time>
+                        </span>
+                        <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                    </p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
     {% endfor %}
+    </div>
 </section>
 {% endblock %}

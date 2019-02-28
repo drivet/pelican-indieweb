@@ -1,7 +1,34 @@
+html {
+    font-size: 14px;
+    
+}
 body {
-    padding-top: 42px;
     font-family: 'Lato', serif;
-    font-size: 16px;
+    color: #666666;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: 0.8rem;
 }
 
 a {
@@ -9,31 +36,36 @@ a {
     text-decoration: none;
 }
 
-h1 {
-    font-size: 32px;
+.nav-link.active {
+    color: #337ab7 !important;
 }
 
-h2 {
-    font-size: 24px;
+.btn-primary {
+    background-color: #337ab7;
+    border-color: #337ab7;
 }
 
-h3 {
-    font-size: 20px;
+.page-item.active .page-link {
+    background-color: #337ab7;
+    border-color: #337ab7;
 }
+
+.page-link {
+    color:  #337ab7;
+}
+
+.bg-light {
+    /* background-color: #f5f5dc !important; */
+    /* background-color: #fffee5 !important; */
+   background-color: #f7f7f7 !important;
+}
+
+/*
 
 .navbar-main {
     box-shadow: 0px 1px 4px 1px lightgrey;
-    height: 40px;
+    height: 50px;
     font-size: 0.8rem;
-}
-
-.navbar-main .navbar-brand {
-    font-size: 1rem;
-}
-
-.navbar-soapbox h1 {
-    margin: 0px;
-    margin-right: 10px;
 }
 
 .navbar-soapbox {
@@ -45,20 +77,9 @@ h3 {
     margin-right: 5px;
 }
 
-.fa-facebook-square {
-    color: #4d67a3;
-}
 
-.fa-instagram {
-    color:  #8a3ab9
-}
-
-.fa-twitter {
-    color: #25a7df;
-}
-
-.fa-linkedin-in {
-    color: #0178b5;
+.fa-rss-square {
+    color: #ffa872
 }
 
 .maincontent {
@@ -78,6 +99,10 @@ article {
     color: #888;
     font-size: 14px;
     margin-bottom: 0.3em;
+}
+
+.article-info a {
+    color: #888;
 }
 
 .article-info-span:first-child {
@@ -104,10 +129,6 @@ article header h1 {
     color: #333;
 }
 
-.card-index .card {
-    margin-bottom: 5px;
-}
-
 .card p:last-child {
     margin-bottom: 0px;
 }
@@ -128,3 +149,20 @@ article header h1 {
     border-top: 1px solid rgba(0,0,0,0.125);
     padding: 10px 0;
 }
+
+.bg-light, .card-footer  {
+    background-color: #f2f8f2 !important;
+}
+
+.card {
+    border: 1px solid #d5e7d5;
+}
+
+.navbar-soapbox {
+    border-bottom: 1px solid #d5e7d5;
+}
+
+.card-fotter {
+    border-top: 1px solid #d5e7d5;
+}
+*/

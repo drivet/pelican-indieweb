@@ -1,12 +1,6 @@
 <header class="article-header">
     {% include 'includes/article_info_head.html' %}
-    <h1>
-        <a class="p-name u-url"
-           href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-           title="Link to {{ article.title|striptags }}">
-            {{ article.title }}
-        </a>
-    </h1>
+    <h1 class="p-name title">{{ article.title }}</h1>
 </header>
 <div class="entry-content e-content">
     {{ article.content }}

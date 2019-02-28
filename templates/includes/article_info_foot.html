@@ -1,5 +1,9 @@
-<div class="article-info">
+<div class="article-info text-muted">
     <div class="article-info-line">
+        <a class="article-info-span" href="{{ SITEURL }}/{{article.url}}">
+            <span class="fa fa-link"></span>
+        </a>
+        &#183;
         <span class="article-info-span">
             <span class="fa fa-folder"></span>
             <a href="{{ SITEURL }}/{{article.category.url}}" class="p-category">{{article.category}}</a>
@@ -7,14 +11,15 @@
         {% if article.tags %}  
         &#183;
         <span class="article-info-span">
+            <span class="fa fa-tag fa-flip-horizontal"></span>
             {% for tag in article.tags: %}
-            <a href="{{ SITEURL }}/{{ tag.url }}" class="p-category">#{{tag}}</a>
+            <a href="{{ SITEURL }}/{{ tag.url }}" class="p-category">
+                {{tag}}
+            </a>
+            {% if not loop.last %},{% endif %}
             {% endfor %}
         </span>
         {% endif %}
-        &#183;
-        <a class="article-info-span"
-           href="{{ SITEURL }}/{{article.url}}"><span class="fa fa-bookmark"></a></span>
     </div>
     {% include 'includes/comment_count.html' %}
 </div>

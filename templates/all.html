@@ -1,12 +1,16 @@
 {% extends "base.html" %}
-{% block title %}Soapbox - {{ SITENAME }}{% endblock%}
+
+{% set mainnavindex = 2 %}
+{% set secnavindex = 1 %}
+
+{% block title %}{{ BLOGNAME }} - {{ SITENAME }}{% endblock%}
 
 {% block banner %}
-<nav class="navbar-soapbox navbar navbar-expand-lg navbar-light bg-light" role="navigation">
+<nav class="navbar-secondary navbar navbar-expand-lg navbar-light bg-light" role="navigation">
     <div class="container">
-        <h1>Soapbox</h1>
+        <h1 class="title">{{ BLOGNAME }}</h1>
 
-        <ul class="navbar-nav soapbox-links mr-auto">
+        <ul class="navbar-nav soapbox-links soapbox-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{{ SITEURL }}/all">
                     All
@@ -24,29 +28,33 @@
             </li>
         </ul>
                 
-        <ul class="navbar-nav soapbox-links">
+        <ul class="navbar-nav soapbox-links soapbox-icons">
              {% if CATEGORIES_SAVE_AS %}
-             <li class="nav-item">
-                 <a class="nav-link" href="{{ SITEURL }}/{{ CATEGORIES_URL | default('categories.html') }}"> 
-                     <span class="fa fa-folder"></span>Categories</a>
+             <li>
+                 <a class="nav-link" title="Categories"
+                    href="{{ SITEURL }}/{{ CATEGORIES_URL | default('categories.html') }}"> 
+                     <span class="fa fa-folder"></span></a>
              </li>
              {% endif %}
              {% if TAGS_SAVE_AS %}
              <li>
-                 <a class="nav-link" href="{{ SITEURL }}/{{ TAGS_URL | default('tags.html') }}"> 
-                     <span class="fa fa-tag fa-flip-horizontal"></span>Tags</a>
+                 <a class="nav-link"  title="Tags"
+                    href="{{ SITEURL }}/{{ TAGS_URL | default('tags.html') }}"> 
+                     <span class="fa fa-tag fa-flip-horizontal"></span></a>
              </li>
              {% endif %} 
              {% if ARCHIVES_SAVE_AS %}
              <li>
-                 <a class="nav-link" href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"> 
-                     <span class="fa fa-archive"></span>Archives</a>
-             </li>
+                 <a class="nav-link" title="Archives"
+                    href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"> 
+                     <span class="fa fa-archive"></span></a>
+             </li class="nav-item">
              {% endif %}  
              {% if FEED_ALL_RSS %}
              <li>
-                 <a class="nav-link" href="{{ SITEURL }}/{{ FEED_ALL_RSS }}">
-                     <span class="fa fa-rss-square"></span>Subscribe</a>
+                 <a class="nav-link"  title="Subscribe"
+                    title=""href="{{ SITEURL }}/{{ FEED_ALL_RSS }}">
+                     <span class="fa fa-rss-square"></span></a>
              </li>
              {% endif %}
          </ul>

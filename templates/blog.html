@@ -10,9 +10,9 @@
 {% endblock %}
 
 {% block article_list_title %}
-<header class="blogheader article-list-header">
-    <h1 class="index-title">{{ BLOGENTRY_TITLE }}</h1>
-    <div class="category-rsslinks"> 
+<header class="blogheader article-list-header d-flex">
+    <h1 class="index-title mr-auto">{{ BLOGENTRY_TITLE }}</h1>
+    <div class="rsslinks align-self-center"> 
         {% if BLOGENTRY_FEED_RSS %}
         <a class="index-link" href="{{ SITEURL }}/{{ BLOGENTRY_FEED_RSS }}">
             <span class="fa fa-rss-square"></span>Subscribe</a>

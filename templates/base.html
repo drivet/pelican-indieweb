@@ -59,20 +59,16 @@
     {% endif %}
     {% endblock %}
     {% endif %}
-
-    {# Twitter Cards tags #}
-    {% include 'includes/twitter_cards.html' %}
-
+    
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" type="text/css"/>
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/fontawesome/css/all.min.css" rel="stylesheet">
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css" type="text/css"/>
 
     {% if 'tipue_search' in PLUGINS %}
     <link href="{{ SITEURL}}/{{ THEME_STATIC_DIR -}}/tipuesearch/tipuesearch.css" rel="stylesheet">
     {% endif %}
-        
-    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css" type="text/css"/>
-
+ 
     {% if CUSTOM_CSS %}
     <link href="{{ SITEURL }}/{{ CUSTOM_CSS }}" rel="stylesheet">
     {% endif %}
@@ -131,7 +127,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     {% for title, link in MENUITEMS %}
-                    <li class="nav-item"><a class="nav-link" href="{{ link }}">{{ title }}</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link {{'active' if loop.index == mainnavindex }}"
+                           href="{{ link }}">{{ title }}
+                    </a></li>
                     {% endfor %}
                 </ul>
                 

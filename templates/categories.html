@@ -7,27 +7,36 @@
 
 {% block content %}
 <section class="card-index categories">
-    <h1>Categories</h1>    
+    <h1>Categories</h1>
+    <div class="accordion" id="categoryAccordion">
     {% for category, articles in categories %}
-    <div class="card">
-        <div class="card-header">
-            <a data-toggle="collapse" href="#collapse-{{category.slug}}">
-                {{ category }}
-                 <span class="float-right badge badge-secondary">{{ articles|count }}</span>
-            </a>
-        </div>
-        <div class="collapse" id="collapse-{{category.slug}}">
-            <div class="card-body">
-                {% for article in articles %}
-                <p><span class="categories-timestamp">
-                        <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+        <div class="card">
+            <div class="card-header bg-light">
+                <a data-toggle="collapse" href="#collapse-{{category.slug}}">
+                    {{ category }}
+                    <span class="float-right badge badge-secondary">
+                        {{ articles|count }}
                     </span>
-                    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-                </p>
-                {% endfor %}
+                </a>
+            </div>
+            <div class="collapse" id="collapse-{{category.slug}}"
+                 data-parent="#categoryAccordion">
+                <div class="card-body">
+                    {% for article in articles %}
+                    <p>
+                        <span class="categories-timestamp">
+                            <time datetime="{{ article.date.isoformat() }}">
+                                {{ article.locale_date }}
+                            </time>
+                        </span>
+                        <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                    </p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
     {% endfor %}
+    </div>
 </section>
+
 {% endblock %}
