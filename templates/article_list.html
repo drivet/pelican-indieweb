@@ -12,7 +12,7 @@ Pages can override :
 {% block article_list_title %}{% endblock %}
 
 {% for article in (articles_page.object_list if articles_page else articles) %}
-<article class="h-entry">
+<article class="h-entry mb-4">
     {% if article.type == "blogentry" %}
     {% include 'blog_list_entry.html' %}
     {% elif article.type == "note" %}

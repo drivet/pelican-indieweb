@@ -65,10 +65,10 @@
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css" type="text/css"/>
 
-    {% if 'tipue_search' in PLUGINS %}
+    {% if 'tipue_search' in PLUGINS and page_name == 'search'%}
     <link href="{{ SITEURL}}/{{ THEME_STATIC_DIR -}}/tipuesearch/tipuesearch.css" rel="stylesheet">
     {% endif %}
- 
+
     {% if CUSTOM_CSS %}
     <link href="{{ SITEURL }}/{{ CUSTOM_CSS }}" rel="stylesheet">
     {% endif %}
@@ -130,38 +130,39 @@
                     <li class="nav-item">
                         <a class="nav-link {{'active' if loop.index == mainnavindex }}"
                            href="{{ link }}">{{ title }}
-                    </a></li>
+                        </a>
+                    </li>
                     {% endfor %}
                 </ul>
                 
+                <ul class="navbar-nav social-nav flex-row">
+                    {% if SOCIAL %}
+                    {% for s in SOCIAL %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ s[1] }}" title="{{ s[0] }}" rel="me">
+                            <i class="{{ s[2] }}"></i>
+                        </a>
+                    </li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+                {% if 'tipue_search' in PLUGINS %}
                 <ul class="navbar-nav">
-                    <!--
-                    {% if 'tipue_search' in PLUGINS %}
-                    <li>
-                      <form class="form-inline" role="search"
-                            action="{{ SEARCH_URL | default('/search.html') }}">
-                        <div class="input-group">
+                    <li class="nav-item d-flex align-items-center mr-2">
+                      <form role="search" action="{{ SEARCH_URL | default('/search.html') }}">
+                        <div class="input-group input-group-sm">
                             <input type="search" class="search-query form-control" 
                                 placeholder="Search" name="q" id="tipue_search_input" required>
-                            <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">
                                     <span class="fa fa-search"></span>
                                 </button>
                             </div>
                         </div>
                       </form>
                     </li>
-                    {% endif %}
-                    -->
-                    {% if SOCIAL %}
-                    {% for s in SOCIAL %}
-                    <li><a class="nav-link" href="{{ s[1] }}" title="{{ s[0] }}" rel="me">
-                        <i class="{{ s[2] }}"></i></a>
-                    </li>
-                    {% endfor %}
-                    {% endif %}
                 </ul>
-                
+                {% endif %}
             </div>
         </div>
     </nav>
@@ -169,9 +170,9 @@
 
 {% block banner %}{% endblock %}
 
-<div class="maincontent container">
+<div class="maincontent container mt-4">
     <div class="row">
-        <div class="offset-sm-1 col-sm-10">
+        <div class="offset-sm-0 col-sm-12 offset-md-1 col-md-10 offset-lg-2 col-lg-8">
         {% block content %}{% endblock %}
         </div>    
     </div>

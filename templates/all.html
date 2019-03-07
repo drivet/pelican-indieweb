@@ -1,34 +1,38 @@
 {% extends "base.html" %}
 
 {% set mainnavindex = 2 %}
+
+{% if secnavindex is not defined %}
 {% set secnavindex = 1 %}
+{% endif %}
 
 {% block title %}{{ BLOGNAME }} - {{ SITENAME }}{% endblock%}
 
 {% block banner %}
 <nav class="navbar-secondary navbar navbar-expand-lg navbar-light bg-light" role="navigation">
-    <div class="container">
-        <h1 class="title">{{ BLOGNAME }}</h1>
-
-        <ul class="navbar-nav soapbox-links soapbox-nav mr-auto">
+    <div class="container flex-column flex-lg-row">
+        <h1 class="title mr-0 mr-lg-4">{{ BLOGNAME }}</h1>
+        <ul class="navbar-nav flex-row soapbox-links soapbox-nav mr-lg-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{ SITEURL }}/all">
+                <a class="nav-link {{'active' if 1 == secnavindex }}"
+                   href="{{ SITEURL }}/all">
                     All
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ SITEURL }}/blog">
+                <a class="nav-link {{'active' if 2 == secnavindex }}"
+                   href="{{ SITEURL }}/blog">
                     Blog
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ SITEURL }}/notes">
+                <a class="nav-link {{'active' if 3 == secnavindex }}"
+                   href="{{ SITEURL }}/notes">
                     Notes
                 </a>
             </li>
         </ul>
-                
-        <ul class="navbar-nav soapbox-links soapbox-icons">
+        <ul class="navbar-nav  flex-row soapbox-links soapbox-icons">
              {% if CATEGORIES_SAVE_AS %}
              <li>
                  <a class="nav-link" title="Categories"
@@ -57,7 +61,7 @@
                      <span class="fa fa-rss-square"></span></a>
              </li>
              {% endif %}
-         </ul>
+        </ul>
     </div>
 </nav>
 
