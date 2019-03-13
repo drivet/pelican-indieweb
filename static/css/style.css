@@ -4,7 +4,6 @@ html {
 }
 body {
     font-family: 'Lato', serif;
-    color: #666666;
 }
 
 h1 {
@@ -41,8 +40,8 @@ a {
 }
 
 .btn-primary {
-    background-color: #337ab7;
-    border-color: #337ab7;
+    background-color: #588ebb;
+    border-color: #588ebb;
 }
 
 .page-item.active .page-link {

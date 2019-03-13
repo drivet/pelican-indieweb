@@ -15,14 +15,14 @@
                 <a data-toggle="collapse" href="#collapse-{{category.slug}}">
                     {{ category }}
                     <span class="float-right badge badge-secondary">
-                        {{ articles|count }}
+                        {{ articles|selectattr('type', 'equalto', 'blogentry') |list|count }}
                     </span>
                 </a>
             </div>
             <div class="collapse" id="collapse-{{category.slug}}"
                  data-parent="#categoryAccordion">
                 <div class="card-body">
-                    {% for article in articles %}
+                    {% for article in articles if article.type == 'blogentry' %}
                     <p>
                         <span class="categories-timestamp">
                             <time datetime="{{ article.date.isoformat() }}">
