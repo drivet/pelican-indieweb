@@ -1,4 +1,22 @@
-{#
-All the articles, in a list
-#}
 {% extends "article_list.html" %}
+
+{% set mainnavindex = 2 %}
+
+{% block title %}
+{{ BLOGNAME }} - {{ SITENAME }}
+{% endblock %}
+
+{% block meta %}
+<meta name="author" content="{{ AUTHOR }}" />
+<meta name="robots" content="noindex,follow" />
+{% endblock %}
+
+{% block article_list_title %}
+<header class="d-flex mb-4">
+    <h1 class="title mr-auto">{{ BLOGNAME }}</h1>
+    {% if FEED_ALL_RSS %}
+    <a class="align-self-center" href="{{ SITEURL }}/{{ BLOGENTRY_FEED_RSS }}">
+        <span class="fa fa-rss-square mr-1"></span>Subscribe</a>
+    {% endif %}
+</header>
+{% endblock %}

@@ -1,10 +1,12 @@
 {#
-base template of pages which have lists of articles in them
+base template of pages which have lists of articles in them.  Provides
+pagination, h-feed wrapping, header placement
+
 Pages can override :
 - article_list_title: the header at the top of the list
 #}
 
-{% extends "all.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 

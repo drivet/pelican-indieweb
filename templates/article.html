@@ -1,5 +1,10 @@
-{% extends "all.html" %}
+{% extends "base.html" %}
 
+{% if article.type == "blogentry" %}
+{% set mainnavindex = 4 %}
+{% elif article.type == "note" %}
+{% set mainnavindex = 3 %}
+{% endif %}
 
 {% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock %}
 {% block html_lang %}{{ article.lang }}{% endblock %}
