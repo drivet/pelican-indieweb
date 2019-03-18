@@ -6,8 +6,8 @@
         &#183;
         <span class="article-info-span">
             <span class="fa fa-folder"></span>
-            <a href="{{ SITEURL }}/{{article.category.url}}" class="p-category">
-                {{article.category}}
+            <a href="{{ SITEURL }}/{{article.subcategories[0].url}}" class="p-category">
+                {{article.subcategories[0].shortname}}
             </a>
         </span>
         {% if article.tags %}  

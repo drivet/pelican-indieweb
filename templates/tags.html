@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% set mainnavindex = 1 %}
+
 {% block title %}Tags - {{ SITENAME }}{% endblock %}
 
 {% block meta %}
@@ -7,34 +9,25 @@
 {% endblock %}
 
 {% block content %}
-<section class="card-index tags">
+<section class="tags">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/all">Lifestream</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Tags</li>
+      </ol>
+    </nav>
+
     <h1 class="mb-4">Tags</h1>
-    <div class="accordion" id="categoryAccordion">
-    {%- for tag, articles in tags|sort %}
-        <div class="card">
-            <div class="card-header bg-light">
-                <a data-toggle="collapse"href="#collapse-{{tag.slug}}">
-                    {{ tag }}
-                     <span class="float-right badge badge-secondary">
-                        {{ articles|count }}
-                    </span>
-                </a>
+    
+    <ul class="list-group">
+        {%- for tag, articles in tags|sort %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+            <div class="badge badge-primary badge-pill">
+                {{ articles|count }}
             </div>
-            <div id="collapse-{{tag.slug}}" class="collapse" data-parent="#categoryAccordion">
-                <div class="card-body">
-                    {% for article in articles %}
-                    <p><span class="categories-timestamp">
-                            <time datetime="{{ article.date.isoformat() }}">
-                                {{ article.locale_date }}
-                            </time>
-                        </span>
-                        <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-                    </p>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    {% endfor %}
-    </div>
+        </li>
+        {% endfor %}
+    </ul>
 </section>
 {% endblock %}

@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
-{% if article.type == "blogentry" %}
+{% if article.category == "blog" %}
 {% set mainnavindex = 4 %}
-{% elif article.type == "note" %}
+{% elif article.category == "notes" %}
 {% set mainnavindex = 3 %}
 {% endif %}
 
@@ -66,9 +66,9 @@
 {% block content %}
 <section id="content">
     <article class="h-entry">
-        {% if article.type == "blogentry" %}
+        {% if article.category == "blog" %}
         {% include 'blog_entry.html' %}
-        {% elif article.type == "note" %}
+        {% elif article.category == "notes" %}
         {% include 'note_entry.html' %}
         {% endif %}
     </article>    

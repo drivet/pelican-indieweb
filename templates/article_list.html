@@ -15,9 +15,9 @@ Pages can override :
 
 {% for article in (articles_page.object_list if articles_page else articles) %}
 <article class="h-entry mb-4">
-    {% if article.type == "blogentry" %}
+    {% if article.category == "blog" %}
     {% include 'blog_list_entry.html' %}
-    {% elif article.type == "note" %}
+    {% elif article.category == "notes" %}
     {% include 'note_list_entry.html' %}
     {% endif %}
 </article>
