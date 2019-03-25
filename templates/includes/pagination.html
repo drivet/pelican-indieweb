@@ -3,8 +3,7 @@
     <div class="mr-auto">
     {% if articles_page.has_previous() %}
     {% set num = articles_page.previous_page_number() %}
-    <a class="" title="Prev"
-       href="{{ SITEURL }}/{{ articles_previous_page.url }}">
+    <a title="Prev" rel="prev" href="{{ SITEURL }}/{{ articles_previous_page.url }}">
        &laquo;  Previous
     </a>
     {% else %}
@@ -16,7 +15,7 @@
     <div class="align-self-center">
     {% if articles_page.has_next() %}
     
-    <a title="Next" href="{{ SITEURL }}/{{articles_next_page.url }}">
+    <a title="Next" href="{{ SITEURL }}/{{articles_next_page.url }}" rel="next">
         Next &raquo;
     </a>
     {% else %}
