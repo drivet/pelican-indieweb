@@ -100,7 +100,9 @@
           title="{{ SITENAME }} {{ category }} ATOM Feed"/>
     {% endif %}
     <link rel="authorization_endpoint" href="{{ SITEURL }}/auth/"/>
-    <link rel="feed" href="{{ SITEURL }}/all" type="text/html"/>    
+    <link rel="token_endpoint" href="https://tokens.indieauth.com/token"/>
+    <link rel="micropub" href="{{ SITEURL }}/micropub"/>
+    <link rel="feed" href="{{ SITEURL }}/{{ INDEX_URL }}" type="text/html"/>
 </head>
 <body>
     <nav class="navbar-main navbar navbar-expand-lg navbar-light bg-white fixed-top" role="navigation">
