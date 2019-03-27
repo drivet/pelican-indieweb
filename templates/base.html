@@ -99,9 +99,19 @@
           type="application/atom+xml" rel="alternate"
           title="{{ SITENAME }} {{ category }} ATOM Feed"/>
     {% endif %}
-    <link rel="authorization_endpoint" href="{{ SITEURL }}/auth/"/>
-    <link rel="token_endpoint" href="https://tokens.indieauth.com/token"/>
-    <link rel="micropub" href="{{ SITEURL }}/micropub"/>
+
+    {% if AUTH_ENDPOINT %}
+    <link rel="authorization_endpoint" href="{{ AUTH_ENDPOINT }}"/>
+    {% endif %}
+
+    {% if TOKEN_ENDPOINT %}
+    <link rel="token_endpoint" href="{{ TOKEN_ENDPOINT }}"/>
+    {% endif %}
+    
+    {% if MICROPUB_ENDPOINT %}
+    <link rel="micropub" href="{{ MICROPUB_ENDPOINT }}"/>
+    {% endif %}
+    
     <link rel="feed" href="{{ SITEURL }}/{{ INDEX_URL }}" type="text/html"/>
 </head>
 <body>
