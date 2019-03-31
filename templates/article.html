@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% if article.category == "blog" %}
-{% set mainnavindex = 4 %}
-{% elif article.category == "notes" %}
 {% set mainnavindex = 3 %}
+{% elif article.category == "notes" %}
+{% set mainnavindex = 2 %}
 {% endif %}
 
 {% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock %}
