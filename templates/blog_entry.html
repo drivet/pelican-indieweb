@@ -4,7 +4,7 @@
 <div class="mt-2">
     {% for syndication_target in article.mp_syndicate_to.split(',') %}
     <a href="{{syndication_target}}"></a>
-    {% endif %}
+    {% endfor %}
     <h1 class="p-name title">{{ article.title }}</h1>
     <div class="entry-content e-content">
         {{ article.content }}
