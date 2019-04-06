@@ -18,6 +18,9 @@
                         {% endif %}
                     </span>
                 </div>
+                {% for syndication_target in article.mp_syndicate_to.split(',') %}
+                <a href="{{syndication_target}}"></a>
+                {% endif %}
             </div>
             <div class="my-2 entry-content e-content">
                 {{ article.content }}
