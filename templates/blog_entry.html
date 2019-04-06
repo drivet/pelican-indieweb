@@ -2,9 +2,11 @@
     {% include 'includes/article_info_head.html' %}
 </header>
 <div class="mt-2">
+    {% if article.mp_syndicate_to %}
     {% for syndication_target in article.mp_syndicate_to.split(',') %}
     <a href="{{syndication_target}}"></a>
     {% endfor %}
+    {% endif %}
     <h1 class="p-name title">{{ article.title }}</h1>
     <div class="entry-content e-content">
         {{ article.content }}
