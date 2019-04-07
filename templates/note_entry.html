@@ -19,7 +19,7 @@
                     </span>
                 </div>
                 {% if article.mp_syndicate_to %}
-                {% for syndication_target in article.mp_syndicate_to.split(',') %}
+                {% for syndication_target in article.mp_syndicate_to %}
                 <a href="{{syndication_target}}"></a>
                 {% endfor %}
                 {% endif %}
@@ -58,8 +58,7 @@
                         </a>
                     </span>
                     {% endif %}
-                    {% if article.syndication %}
-                    {% for syndication in article.syndication.split(',') %}
+                    {% for syndication in article.syndication %}
                     {% if syndication.startswith('https://twitter.com') %}
                     <span class="article-info-span">
                         <a class="u-syndication" href="{{syndication}}">
@@ -68,7 +67,6 @@
                     </span>
                     {% endif %}
                     {% endfor %}
-                    {% endif %}
                 </div>
             </div>
         </div>
