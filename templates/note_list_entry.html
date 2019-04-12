@@ -26,6 +26,12 @@
             </div>
             <div class="my-2 entry-content e-content">
                 {{ article.content }}
+                {% for photo in article.photos %}
+                <img src="{{photo}}" class="u-photo"/>
+                {% endfor %}
+                {% for video in article.videos %}
+                <video src="{{video}}" class="u-video" />
+                {% endfor %}
             </div>
             <div class="article-info text-muted">
                 <div class="article-info-line d-flex">
