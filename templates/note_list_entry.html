@@ -1,5 +1,9 @@
+{% if article.photos %}
 {% set photos = article.photos.split(',') %}
+{% endif %}
+{% if article.videos %}
 {% set videos = article.vidoes.split(',') %}
+{% endif %}
 <div class="card">
     <div class="card-body">
         <div class="card-text">
