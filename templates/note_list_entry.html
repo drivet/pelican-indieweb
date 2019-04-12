@@ -33,7 +33,7 @@
             <div class="my-2 entry-content e-content">
                 {{ article.content }}
                 {% for photo in photos %}
-                <img src="{{photo}}" class="u-photo"/>
+                <img src="{{photo}}" class="u-photo" style="width: 100%; height: auto;"/>
                 {% endfor %}
                 {% for video in videos %}
                 <video src="{{video}}" class="u-video" />
