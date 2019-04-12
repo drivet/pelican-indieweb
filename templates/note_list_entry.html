@@ -1,3 +1,5 @@
+{% set photos = article.photos.split(',') %}
+{% set videos = article.vidoes.split(',') %}
 <div class="card">
     <div class="card-body">
         <div class="card-text">
@@ -26,10 +28,10 @@
             </div>
             <div class="my-2 entry-content e-content">
                 {{ article.content }}
-                {% for photo in article.photos %}
+                {% for photo in photos %}
                 <img src="{{photo}}" class="u-photo"/>
                 {% endfor %}
-                {% for video in article.videos %}
+                {% for video in videos %}
                 <video src="{{video}}" class="u-video" />
                 {% endfor %}
             </div>
