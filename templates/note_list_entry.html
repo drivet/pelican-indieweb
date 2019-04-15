@@ -35,7 +35,8 @@
                 {{ article.content }}
                 {% for photo in photos %}
                 {% if photos_alt %}
-                <img src="{{photo}}" alt="{{ photos_alt[loop.index0] }}" class="u-photo embedded-photo"/>
+                <img src="{{photo}}" alt="{{ photos_alt[loop.index0] | replace('\\,', ',') }}"
+                     class="u-photo embedded-photo"/>
                 {% else %}
                 <img src="{{photo}}" class="u-photo embedded-photo"/>
                 {% endif %}
