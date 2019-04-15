@@ -34,7 +34,11 @@
             <div class="my-2 entry-content e-content">
                 {{ article.content }}
                 {% for photo in photos %}
+                {% if photos_alt %}
                 <img src="{{photo}}" alt="{{ photos_alt[loop.index0] }}" class="u-photo embedded-photo"/>
+                {% else %}
+                <img src="{{photo}}" class="u-photo embedded-photo"/>
+                {% endif %}
                 {% endfor %}
             </div>
             <div class="article-info text-muted">
