@@ -57,6 +57,14 @@
 {% endif %}
 {% endblock %}
 
+
+{% block link %}
+{% if WEBMENTION_ENDPOINT %}
+<link rel="webmention" href="{{ WEBMENTION_ENDPOINT }}"/>
+{% endif %}
+{% endblock %}
+
+
 {% block content %}
 <section id="content">
     <article class="h-entry">
@@ -65,6 +73,6 @@
         {% elif article.category == "notes" %}
         {% include 'note_entry.html' %}
         {% endif %}
-    </article>    
+    </article>
 </section>
 {% endblock %}

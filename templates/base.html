@@ -111,7 +111,10 @@
     {% if MICROPUB_ENDPOINT %}
     <link rel="micropub" href="{{ MICROPUB_ENDPOINT }}"/>
     {% endif %}
-    
+
+    {% block link %}
+    {% endblock %}
+
     <link rel="feed" href="{{ SITEURL }}/{{ INDEX_URL }}" type="text/html"/>
 </head>
 <body>

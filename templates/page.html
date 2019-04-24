@@ -39,6 +39,14 @@
 {% endif %}
 {% endblock %}
 
+
+{% block link %}
+{% if WEBMENTION_ENDPOINT %}
+<link rel="webmention" href="{{ WEBMENTION_ENDPOINT }}"/>
+{% endif %}
+{% endblock %}
+
+
 {% block content %}
 <article id="content" class="body">
     {% if page.title %}
