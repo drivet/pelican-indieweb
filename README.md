@@ -1,3 +1,4 @@
+# OBSOLETE.  Please see https://github.com/drivet/pelican-indieweb-kit
 # pelican-indieweb
 
 A pelican theme for an IndieWeb based website.
